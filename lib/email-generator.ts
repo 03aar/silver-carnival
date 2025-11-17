@@ -37,12 +37,12 @@ const SPACING_MAP: Record<SpacingValue, number> = {
 const FONT_SIZE_MAP: Record<string, number> = {
   xs: 11,
   sm: 13,
-  base: 15,
-  lg: 18,
-  xl: 24,
-  '2xl': 32,
-  '3xl': 48,
-  '4xl': 64,
+  base: 16,
+  lg: 20,
+  xl: 28,
+  '2xl': 36,
+  '3xl': 52,
+  '4xl': 72,
 };
 
 // Line height mapping

@@ -8,9 +8,10 @@ import { generateEmailHTML } from '@/lib/email-generator';
 interface EditorProps {
   template: EmailTemplate;
   onChange: (template: EmailTemplate) => void;
+  onStartOver?: () => void;
 }
 
-export default function Editor({ template, onChange }: EditorProps) {
+export default function Editor({ template, onChange, onStartOver }: EditorProps) {
   const [showExportModal, setShowExportModal] = useState(false);
   const addSection = (type: SectionType) => {
     const newSection: SectionContent = createDefaultSection(type);
@@ -100,26 +101,48 @@ export default function Editor({ template, onChange }: EditorProps) {
           }}>
             Email Studio
           </h1>
-          <button
-            onClick={() => setShowExportModal(true)}
-            style={{
-              padding: 'var(--space-2) var(--space-4)',
-              border: '1px solid var(--black)',
-              fontSize: 'var(--text-sm)',
-              fontWeight: 600,
-              transition: 'all 0.15s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--black)';
-              e.currentTarget.style.color = 'var(--white)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = 'var(--black)';
-            }}
-          >
-            Export
-          </button>
+          <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
+            {onStartOver && (
+              <button
+                onClick={onStartOver}
+                style={{
+                  padding: 'var(--space-2) var(--space-3)',
+                  border: '1px solid var(--black)',
+                  fontSize: 'var(--text-xs)',
+                  opacity: 0.6,
+                  transition: 'all 0.15s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = '0.6';
+                }}
+              >
+                ← Back
+              </button>
+            )}
+            <button
+              onClick={() => setShowExportModal(true)}
+              style={{
+                padding: 'var(--space-2) var(--space-4)',
+                border: '1px solid var(--black)',
+                fontSize: 'var(--text-sm)',
+                fontWeight: 600,
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'var(--black)';
+                e.currentTarget.style.color = 'var(--white)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = 'var(--black)';
+              }}
+            >
+              Export
+            </button>
+          </div>
         </div>
         <p style={{
           fontSize: 'var(--text-sm)',
