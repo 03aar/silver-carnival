@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/*
+  Minimal Email Studio Design System
+
+  Philosophy: Black text on white space. Nothing else.
+  Every element must earn its right to exist.
+  Negative space is a material, not an absence.
+*/
+
+:root {
+  /* Core Colors - Only Black and White */
+  --black: #000000;
+  --white: #ffffff;
+
+  /* Spacing Scale - Precise, Mathematical */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Typography Scale - Hierarchy Through Size */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 48px;
+  --text-4xl: 64px;
+
+  /* Line Heights - Breathing Room */
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  --leading-loose: 2;
+
+  /* Letter Spacing - Precision */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+}
+
+@theme inline {
+  --color-black: var(--black);
+  --color-white: var(--white);
+}
+
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+/* Discipline Through Constraints */
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+input, textarea {
+  background: var(--white);
+  border: 1px solid var(--black);
+  color: var(--black);
+  font: inherit;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-width: 2px;
+}
+
+/* Only Essential Interactive States */
+a {
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--black);
+}
+
+a:hover {
+  border-bottom-width: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--black);
+  color: var(--white);
+}
