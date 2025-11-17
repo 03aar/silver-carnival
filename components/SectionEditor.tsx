@@ -88,8 +88,8 @@ export default function SectionEditor({
 }
 
 function renderControls(section: SectionContent, onChange: (section: SectionContent) => void) {
-  const updateField = <K extends keyof SectionContent>(field: K, value: SectionContent[K]) => {
-    onChange({ ...section, [field]: value });
+  const updateField = (field: string, value: any) => {
+    onChange({ ...section, [field]: value } as SectionContent);
   };
 
   const spacing = 'spacing' in section ? section.spacing : null;
