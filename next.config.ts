@@ -2,12 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/silver-carnival',
-  assetPrefix: '/silver-carnival',
+  assetPrefix: './',
   images: {
     unoptimized: true,
   },
-  trailingSlash: true,
+  trailingSlash: false,
 };
 
 export default nextConfig;
